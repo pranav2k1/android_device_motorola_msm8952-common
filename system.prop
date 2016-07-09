@@ -1,8 +1,5 @@
 # system.prop for msm8952-common
 
-# Android Run Time
-ro.sys.fw.dex2oat_thread_count=4
-
 # Audio
 audio.dolby.ds2.enabled=true
 audio.offload.24bit.enable=false
@@ -24,6 +21,24 @@ ro.qc.sdk.audio.ssr=false
 
 use.voice.path.for.pcm.voip=true
 
+# Dex2oat threads for faster app installation
+ro.sys.fw.dex2oat_thread_count=4
+
+# Display
+debug.egl.hw=0
+debug.enable.sglscale=1
+debug.mdpcomp.logs=0
+debug.sf.hw=0
+dev.pm.dyn_samplingrate=1
+persist.demo.hdmirotationlock=false
+persist.hwc.mdpcomp.enable=true
+persist.hwc.downscale_threshold=1.15
+ro.opengles.version=196609
+ro.sf.lcd_density=480
+
+# FRP
+ro.frp.pst=/dev/block/bootdevice/by-name/config
+
 # Bluetooth
 bluetooth.hfp.client=1
 ro.bluetooth.dun=true
@@ -38,25 +53,36 @@ ro.qualcomm.bluetooth.opp=true
 ro.qualcomm.bluetooth.pbap=true
 ro.qualcomm.bt.hci_transport=smd
 
-# Camera
-camera2.portability.force_api=1
-
-# Display
-ro.opengles.version=196608
-persist.hwc.mdpcomp.enable=1
-
-# FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/frp
-
 # GPS
+persist.gps.qc_nlp_in_use=1
 ro.gps.agps_provider=1
-ro.pip.gated=0
 
-# Hotspot WiFi
-sys.usb.rps_mask=10
+# HWUI properties
+ro.hwui.texture_cache_size=72
+ro.hwui.layer_cache_size=48
+ro.hwui.r_buffer_cache_size=8
+ro.hwui.path_cache_size=32
+ro.hwui.gradient_cache_size=1
+ro.hwui.drop_shadow_cache_size=6
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_large_cache_height=2048
+
+# IO Scheduler
+sys.io.scheduler=bfq
 
 # Media
-vidc.enc.narrow.searchrange=1
+media.msm8956hw=1
+mm.enable.smoothstreaming=true
+mmp.enable.3g2=true
+media.aac_51_output_enabled=true
+
+# Netmgrd
+ro.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
+persist.data.mode=concurrent
 
 # NITZ
 persist.rild.nitz_plmn=
@@ -70,30 +96,36 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 
 # Qualcomm
-com.qc.hardware=true
-debug.qc.hardware=true
-persist.timed.enable=true
+ro.qualcomm.cabl=2
+ro.qcom.ad=1
+ro.qcom.ad.calib.data=/data/misc/display/ad_calib.cfg
 
 # Radio
+DEVICE_PROVISIONED=1
 persist.data.qmi.adb_logmask=0
 persist.radio.apn_delay=5000
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
 persist.radio.apm_sim_not_pwdn=1
-persist.radio.dfr_mode_set=1
-persist.radio.no_wait_for_card=1
-persist.radio.oem_ind_to_both=false
-persist.radio.relay_oprt_change=1
+persist.radio.cs_srv_type=1
+persist.radio.custom_ecc=1
+persist.radio.force_on_dc=true
+persist.radio.multisim.config=dsds
+persist.radio.NO_STAPA=1
+persist.radio.rat_on=combine
+persist.sys.ssr.restart_level=modem
 rild.libargs=-d /dev/smd0
-rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+rild.libpath=/vendor/lib/libril-qc-qmi-1.so
+ril.subscription.types=RUIM
+ro.telephony.default_network=9,9
+ro.telephony.call_ring.multiple=false
+telephony.lteOnCdmaDevice=1
 
-ro.use_data_netmgrd=true
-persist.data.netmgrd.qos.enable=true
+# TCP
+net.tcp.2g_init_rwnd=10
 
-# USB
-ro.usb.mtp=0x2e82
-ro.usb.mtp_adb=0x2e76
-ro.usb.ptp=0x2e83
-ro.usb.ptp_adb=0x2e84
-ro.usb.bpt=0x2ec1
-ro.usb.bpt_adb=0x2ec5
-ro.usb.bpteth=0x2ec3
-ro.usb.bpteth_adb=0x2ec6
+# Time
+persist.timed.enable=true
+
+# WiFi
+wifi.interface=wlan0
