@@ -328,7 +328,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_major = 1,
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "HM Note 3 Lights Module",
+    .name = "Moto G4 Plus Lights Module",
     .author = "The CyanogenMod Project",
     .methods = &lights_module_methods,
 };
